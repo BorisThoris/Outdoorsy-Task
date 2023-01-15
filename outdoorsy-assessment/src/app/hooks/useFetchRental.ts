@@ -1,20 +1,28 @@
 import { useState, useEffect } from 'react'
 import _ from 'lodash'
 
+
+interface Image {
+    id: number; 
+    url: string;
+}
+
 interface Rental {
   id: number
   name: string
+  description: string
+  images: Image[]
 }
 
 interface Data {
   rentals: Rental[] | null
-  error: Error | null
+  error: any
   loading: boolean
 }
 
 export const useFetchRentals = (): Data => {
     const [rentals, setRentals] = useState<Rental[] | null>(null)
-    const [error, setError] = useState<Error | null>(null)
+    const [error, setError] = useState<any>(null)
     const [loading, setLoading] = useState(false)
   
     useEffect(() => {
@@ -25,10 +33,22 @@ export const useFetchRentals = (): Data => {
             'https://search.outdoorsy.com/rentals?raw_json=true&seo_links=true&education=true&average_daily_pricing=true&bounds[ne]=48.98092525847389%2C-78.96109168750172&bounds[sw]=-8.694261853521098%2C-94.03274245586124&currency=USD&filter[exclude_type]=utility-trailer%2Ctow-vehicle%2Cother&locale=en-us&page[limit]=24&page[offset]=0&suggested=true',
           )
           const json = await res.json()
-          setRentals(_.get(json, 'data'))
+          setRentals(json.data.map((item: any) => {
+            return {
+              id: item.id,
+              name: item.name,
+              description: item.description,
+              images: item.images.map((img: any) => {
+                return {
+                  id: img.id,
+                  url: img.url
+                }
+              })
+            }
+          }))
           setLoading(false)
-        } catch (err) {
-          setError(err)
+        } catch (error) {
+          setError(error)
           setLoading(false)
         }
       }
@@ -37,4 +57,3 @@ export const useFetchRentals = (): Data => {
   
     return { rentals, error, loading }
   }
-  
