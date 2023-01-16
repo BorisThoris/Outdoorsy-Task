@@ -1,18 +1,7 @@
 import { useState, useEffect } from 'react'
 import _ from 'lodash'
 
-
-interface Image {
-    id: number; 
-    url: string;
-}
-
-interface Rental {
-  id: number
-  name: string
-  description: string
-  images: Image[]
-}
+import { Rental } from '../sharedTypes/rental'
 
 interface Data {
   rentals: Rental[] | null

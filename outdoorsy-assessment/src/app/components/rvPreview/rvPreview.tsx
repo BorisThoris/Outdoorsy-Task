@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Rental } from '../../sharedTypes/rental'
 
 const RvCard = styled.div`
   display: flex;
@@ -25,18 +26,6 @@ const RvDesc = styled.div`
   color: darkgray;
   width: 280px;
 `
-
-interface Image {
-  id: number
-  url: string
-}
-
-interface Rental {
-  id: number
-  name: string
-  description: string
-  images: Image[]
-}
 
 interface RvImage {
   url: string
