@@ -4,7 +4,7 @@ import _ from 'lodash'
 import { useFetchRentals } from '@/app/hooks/useFetchRental'
 import { RvPreview } from '@/app/components/rvPreview/rvPreview'
 
-import SearchBar from '@/app/components/searchBar/searchBar'
+import { SearchBar } from '@/app/components/searchBar/searchBar'
 
 const Dashboard = () => {
   const { rentals, error, loading } = useFetchRentals()

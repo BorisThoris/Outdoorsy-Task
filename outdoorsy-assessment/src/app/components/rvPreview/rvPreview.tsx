@@ -8,15 +8,15 @@ import { brokenUrl } from '../../../constants'
 const RvCard = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 4%;
+  margin-top: 8%;
 `
 interface ImageProps {
   background: string
 }
 
 const RvImage = styled.div<ImageProps>`
-  min-width: 160px;
-  height: 110px;
+  min-width: 40%;
+  height: 10vh;
 
   background-image: url(${(props) => props.background});
   background-size: cover;
@@ -26,8 +26,10 @@ const RvImage = styled.div<ImageProps>`
 `
 
 const RvDesc = styled.div`
-  color: darkgray;
+  color: darkslategray;
   width: 280px;
+
+  font-size: 60%;
 `
 
 interface RvImage {
