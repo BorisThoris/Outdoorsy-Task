@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+
 import '../../../setupTests'
 
 import { RvPreview } from './rvPreview'
 import { Rental } from '../../sharedTypes/rental'
-
 import { brokenUrl } from '../../../constants'
 
 describe('RvPreview', () => {
@@ -16,7 +16,6 @@ describe('RvPreview', () => {
       images: [],
     }
     const wrapper = shallow(<RvPreview rental={rental} />)
-
     expect(wrapper.find({ 'data-test-id': 'preview-name' }).text()).toBe(
       rental.name,
     )
@@ -29,9 +28,9 @@ describe('RvPreview', () => {
       description: '',
       images: [{ id: 1, url: 'test.jpg' }],
     }
+
     const wrapper = shallow(<RvPreview rental={rental} />)
     const previewImage = wrapper.find({ 'data-test-id': 'preview-image' })
-
     expect(previewImage.props().background).toBe(rental.images[0].url)
   })
 
@@ -42,9 +41,9 @@ describe('RvPreview', () => {
       description: '',
       images: [],
     }
+
     const wrapper = shallow(<RvPreview rental={rental} />)
     const previewImage = wrapper.find({ 'data-test-id': 'preview-image' })
-
     expect(previewImage.props().background).toBe(brokenUrl)
   })
 })
