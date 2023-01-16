@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import _ from 'lodash'
+
 import { Rental } from '../../sharedTypes/rental'
+import { brokenUrl } from '../../../constants'
 
 const RvCard = styled.div`
   display: flex;
@@ -31,13 +34,13 @@ interface RvImage {
   url: string
 }
 
-const RvPreview = ({ rental }: { rental: Rental }) => {
+export const RvPreview = ({ rental }: { rental: Rental }) => {
+  const imageUrl = _.get(rental, 'images[0].url', brokenUrl)
+
   return (
     <RvCard>
-      <RvImage background={rental.images[0].url} />
-      <RvDesc>{rental.name}</RvDesc>
+      <RvImage data-test-id="preview-image" background={`${imageUrl}`} />
+      <RvDesc data-test-id="preview-name">{rental.name}</RvDesc>
     </RvCard>
   )
 }
-
-export default RvPreview
