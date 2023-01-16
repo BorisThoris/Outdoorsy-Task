@@ -2,7 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 
 const RvCard = styled.div`
-  background-color: red;
+  display: flex;
+  align-items: center;
+  margin-top: 4%;
+`
+interface ImageProps {
+  background: string
+}
+
+const RvImage = styled.div<ImageProps>`
+  min-width: 160px;
+  height: 110px;
+
+  background-image: url(${(props) => props.background});
+  background-size: cover;
+  background-repeat: round;
+  border-radius: 5%;
+  margin-right: 1%;
+`
+
+const RvDesc = styled.div`
+  color: darkgray;
+  width: 280px;
 `
 
 interface Image {
@@ -17,11 +38,15 @@ interface Rental {
   images: Image[]
 }
 
+interface RvImage {
+  url: string
+}
+
 const RvPreview = ({ rental }: { rental: Rental }) => {
   return (
     <RvCard>
-      <img width="200" height="180" src={rental.images[0].url} />
-      <div>{rental.description}</div>
+      <RvImage background={rental.images[0].url} />
+      <RvDesc>{rental.name}</RvDesc>
     </RvCard>
   )
 }
