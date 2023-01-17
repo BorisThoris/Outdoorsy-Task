@@ -23,5 +23,5 @@ export const SearchBar = ({ refetchRentals }: SearchBarProps) => {
     debouncedRefetch(e.target.value)
   }
 
-  return <SearchInput onChange={handleChange} />
+  return <SearchInput data-test-id="search-input" onChange={handleChange} />
 }
