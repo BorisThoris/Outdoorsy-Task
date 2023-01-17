@@ -19,7 +19,7 @@ To run the test suite, simply run `npm test` from the project directory.
 If I had more time, I would consider adding the following features:
 
 - Adding a map to display the location of the RV rentals
-- Fixing any bugs related to the rendering and styling of the application
+- Fixing any bugs related to the rendering and styling of the application (Currently there's a pesky bug that breaks styles sometimes, due to the style of rendering conflicting with the way styled components work)
 - Reorganizing the file structure for better organization
 - Adding more unit tests for better coverage
 - Using a library to handle the fetching of data for the RV rentals
