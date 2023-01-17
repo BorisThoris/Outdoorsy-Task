@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import '../../../setupTests'
 
-import { RvPreview } from './rvPreview'
+import { RvPreview } from './index'
 import { Rental } from '../../sharedTypes/rental'
 import { brokenUrl } from '../../../constants'
 

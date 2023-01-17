@@ -19,7 +19,7 @@ interface SearchBarProps {
 export const SearchBar = ({ refetchRentals }: SearchBarProps) => {
   const debouncedRefetch = _.debounce((val) => refetchRentals(val), 1500)
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     debouncedRefetch(e.target.value)
   }
 
