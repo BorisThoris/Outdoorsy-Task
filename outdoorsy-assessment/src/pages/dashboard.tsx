@@ -5,6 +5,8 @@ import { useFetchRentals } from '../app/hooks/useFetchRental'
 import { RvPreview } from '../app/components/rvPreview'
 import { SearchBar } from '../app/components/searchBar'
 
+import { Rental } from '@/app/sharedTypes/rental'
+
 const Dashboard = () => {
   const { rentals, error, loading, refetchRentals } = useFetchRentals()
 
@@ -16,7 +18,9 @@ const Dashboard = () => {
       <SearchBar refetchRentals={refetchRentals} />
 
       {!loading ? (
-        rentals?.map((item) => <RvPreview key={item.id} rental={item} />)
+        rentals?.map((item: Rental) => (
+          <RvPreview key={item.id} rental={item} />
+        ))
       ) : (
         <div>Rentals loading</div>
       )}
