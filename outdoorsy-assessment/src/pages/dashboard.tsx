@@ -3,7 +3,6 @@ import _ from 'lodash'
 
 import { useFetchRentals } from '../app/hooks/useFetchRental'
 import { RvPreview } from '../app/components/rvPreview'
-
 import { SearchBar } from '../app/components/searchBar'
 
 const Dashboard = () => {
