@@ -6,3 +6,7 @@ Run instructions:
 2.  npm install
 3.  npm run dev
 4.  localhost:3000/dashboard
+
+To Run Tests:
+
+- npm test (in outdoorsy-assessment directory)
